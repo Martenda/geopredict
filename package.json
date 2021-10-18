@@ -1,0 +1,11 @@
+{
+  "name": "geopredict",
+  "version": "1.0.0",
+  "description": "geopredict",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start --prefix backend/api"
+  },
+  "author": "",
+  "license": "ISC"
+}
