@@ -4,6 +4,7 @@
   "description": "geopredict",
   "main": "index.js",
   "scripts": {
+    "setup": "cd backend/api && npm run setup",
     "start": "npm run start --prefix backend/api"
   },
   "author": "",

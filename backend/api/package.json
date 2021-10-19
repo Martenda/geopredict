@@ -5,6 +5,7 @@
     "author": "",
     "license": "MIT",
     "scripts": {
+        "setup": "rm -rf node_modules && npm install",
         "start": "tsc && node dist/index.js"
     },
     "devDependencies": {

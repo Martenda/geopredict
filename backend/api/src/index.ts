@@ -1,9 +1,8 @@
 import { config } from 'dotenv'
 config()
 
-import databaseService from './services/database/database'
-import serverService from './services/server/server'
+import databaseService from './services/database/databaseService'
+import serverService from './services/server/serverService'
 
-// databaseService.init()
+databaseService.init()
 serverService.init()
-

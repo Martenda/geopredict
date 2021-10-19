@@ -1,9 +1,9 @@
-import UserModel from "../models/user/user";
-import ReadController from "./readController";
+import CrudController from "../lib/crudController";
+import UserRepository from "../models/user/userRepository";
 
-class UserController extends ReadController {
+class UserController extends CrudController {
     constructor() {
-        super(UserModel);
+        super(new UserRepository());
     }
 }
 

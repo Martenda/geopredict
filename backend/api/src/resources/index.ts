@@ -1,4 +1,4 @@
-import userResource from "./userResource";
+import userResource from "./user/userResource";
 
 export default [
     ...userResource,
