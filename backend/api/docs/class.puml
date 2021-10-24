@@ -1,0 +1,29 @@
+@startuml geopredict class diagram
+class BaseEntity {
+    id: Uuid
+    created: Date
+    updated: Date
+}
+
+class Map extends BaseEntity {
+    name: String
+    locations: Array<Geojson.Point>
+}
+
+class Score extends BaseEntity {
+    map: Map
+    user: User
+    points: Integer
+    timeSpentInSeconds: Float
+}
+
+class User extends BaseEntity {
+    username: String
+    password: String
+    name: String
+}
+
+Score -- User
+Score -- Map
+
+@enduml

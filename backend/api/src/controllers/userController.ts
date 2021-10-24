@@ -1,10 +1,10 @@
-import CrudController from "../lib/crudController";
-import UserRepository from "../models/user/userRepository";
+import Controller from "../lib/controller/Controller";
+import UserRepository from "../repositories/userRepository";
 
-class UserController extends CrudController {
+class UserController extends Controller {
     constructor() {
-        super(new UserRepository());
+        super(UserRepository);
     }
 }
 
-export default UserController;
+export default new UserController();

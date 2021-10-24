@@ -4,8 +4,10 @@
   "description": "geopredict",
   "main": "index.js",
   "scripts": {
-    "setup": "cd backend/api && npm run setup",
-    "start": "npm run start --prefix backend/api"
+    "setup-backend": "npm run setup --prefix backend/api",
+    "start-backend": "npm run start --prefix backend/api",
+    "setup-frontend": "npm run setup --prefix frontend/app",
+    "start-frontend": "npm run start --prefix frontend/app"
   },
   "author": "",
   "license": "ISC"

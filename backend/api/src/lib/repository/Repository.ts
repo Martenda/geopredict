@@ -1,11 +1,10 @@
-
-import { Model } from 'mongoose';
+import { Model } from "mongoose";
 
 function sanitizeEntityInput(input: any) {
-    delete input?.created
-    delete input?.updated
-    delete input?._id
-    
+    delete input?.created;
+    delete input?.updated;
+    delete input?._id;
+
     return input;
 }
 
@@ -18,21 +17,21 @@ class Repository {
 
     async findById(id: string) {
         const doc = await this.model.findById(id);
-        
-        if(!doc) {
+
+        if (!doc) {
             return doc.toJSON();
         }
     }
 
-    async createOne(entity: any) {
+    async create(entity: any) {
         const doc = new this.model(sanitizeEntityInput(entity));
         await doc.save();
 
         return doc.toJSON();
     }
-    
+
     async deleteById(id: string) {
-        await this.model.findByIdAndDelete(id)
+        await this.model.findByIdAndDelete(id);
     }
 
     async updateById(id: string, entity: any) {
