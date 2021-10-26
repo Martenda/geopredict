@@ -9,12 +9,22 @@ class Controller {
     }
 
     async findById(req: Request, res: Response) {
-        const entity = await this.repository.findById(req.params.id);
+        // const entity = await this.repository.findById(req.params.id);
 
-        if (!entity) {
-            //add error handling for 404 status
-            throw new Error("404 not found");
-        }
+        // if (!entity) {
+        //     //add error handling for 404 status
+        //     throw new Error("404 not found");
+        // }
+
+        const entity = {
+            name: "test",
+            places: [
+                {
+                    type: "Point",
+                    coordinates: [-28.620497147296177, -51.04341959808675],
+                },
+            ],
+        };
 
         return res.json(entity);
     }

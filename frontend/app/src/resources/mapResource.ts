@@ -2,7 +2,7 @@ import Resource from "../lib/Resource";
 
 class MapResource extends Resource {
     constructor() {
-        super("map");
+        super("maps");
     }
 }
 

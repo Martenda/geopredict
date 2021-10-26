@@ -1,11 +1,12 @@
 import React from 'react';
+import MapViewport from './components/MapViewport.jsx';
 import './index.css';
 
 function App() {
   return (
     <div>
-      <header>
-      </header>
+      <header>Geopredict</header>
+      <MapViewport />
     </div>
   );
 }

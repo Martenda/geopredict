@@ -19,12 +19,14 @@ async function parseResponse(response: Response) {
 
 class DataService implements DataServiceInterface {
     async find(params: Params) {
-        const response = await fetch(`${apiUrl}${params.path}`);
+        const response = await fetch(
+            `${apiUrl}/${params.path}${params.id ? "/" + params.id : ""}`
+        );
         return await parseResponse(response);
     }
 
     async create(params: Params) {
-        const response = await fetch(`${apiUrl}${params.path}`, {
+        const response = await fetch(`${apiUrl}/${params.path}`, {
             body: JSON.stringify(params.body),
             method: "post",
             headers,
@@ -33,7 +35,7 @@ class DataService implements DataServiceInterface {
     }
 
     async update(params: Params) {
-        const response = await fetch(`${apiUrl}${params.path}/${params.id}`, {
+        const response = await fetch(`${apiUrl}/${params.path}/${params.id}`, {
             body: JSON.stringify(params.body),
             method: "put",
             headers,
@@ -42,7 +44,7 @@ class DataService implements DataServiceInterface {
     }
 
     async delete(params: Params) {
-        const response = await fetch(`${apiUrl}${params.path}/${params.id}`, {
+        const response = await fetch(`${apiUrl}/${params.path}/${params.id}`, {
             method: "delete",
         });
         return await parseResponse(response);
