@@ -1,29 +1,87 @@
-@startuml geopredict class diagram
+    @startuml geopredict class diagram
 class BaseEntity {
     id: Uuid
     created: Date
     updated: Date
 }
 
-class Map extends BaseEntity {
+class "Map extends BaseEntity" {
     name: String
     locations: Array<Geojson.Point>
 }
 
-class Score extends BaseEntity {
-    map: Map
+class "Score extends BaseEntity" {
     user: User
     points: Integer
     timeSpentInSeconds: Float
 }
 
-class User extends BaseEntity {
+class "Game extends BaseEntity" {
+    rounds: Array<Round>
+    users: Array<User>
+    map: Map
+}
+
+class "Round extends BaseEntity" {
+    location: Geojson.Point
+    userScores: Array<Score>
+}
+
+class "User extends BaseEntity" {
     username: String
     password: String
     name: String
 }
 
-Score -- User
-Score -- Map
+"Game extends BaseEntity" "1" --- "n" "Round extends BaseEntity"
+"Game extends BaseEntity" "n" --- "1..10" "User extends BaseEntity"
+"Score extends BaseEntity" "n" --- "1" "User extends BaseEntity"
+"Score extends BaseEntity" "1..10" --- "1" "Round extends BaseEntity"
+"Map extends BaseEntity" "1" -- "n" "Game extends BaseEntity"
 
 @enduml
+
+
+Game = {
+    users = [
+        {id: eu, totalScore: 0},
+        {id: tu, totalScore: 5000}
+    ]
+
+    locations = [
+        {lat, lng},
+        {lat, lng}
+    ]
+
+    rounds = [
+        {
+            location: "praia do mole",
+            UserScores = [
+                {
+                    user: tu,
+                    score: 5000
+                },
+                {
+                    user: eu,
+                    score: 0
+                }
+            ]
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
