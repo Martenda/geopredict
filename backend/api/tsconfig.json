@@ -10,7 +10,8 @@
         "allowSyntheticDefaultImports": true,
         "sourceMap": true,
         "outDir": "dist",
-        "removeComments": true
+        "removeComments": true,
+        "resolveJsonModule": true
     },
     "include": [
         "src",

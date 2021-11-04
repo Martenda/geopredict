@@ -6,7 +6,8 @@
     "license": "MIT",
     "scripts": {
         "setup": "rm -rf node_modules && npm install",
-        "start": "tsc && node dist/index.js"
+        "start": "tsc && node dist/index.js",
+        "seed-db": "tsc && node dist/index.js"
     },
     "devDependencies": {
         "@types/cors": "^2.8.12",
