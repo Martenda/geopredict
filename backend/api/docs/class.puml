@@ -1,4 +1,5 @@
-    @startuml geopredict class diagram
+@startuml geopredict class diagram
+
 class BaseEntity {
     id: Uuid
     created: Date
@@ -55,7 +56,7 @@ Game = {
 
     rounds = [
         {
-            location: "praia do mole",
+            location: "praia",
             UserScores = [
                 {
                     user: tu,

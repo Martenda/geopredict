@@ -1,0 +1,63 @@
+@startuml geopredict class diagram
+
+class BaseEntity {
+    id: Uuid
+    created: Date
+    updated: Date
+}
+
+class Route {
+    method: POST | GET | PATCH | DELETE
+
+}
+
+class Resource {
+    routes: Array<Route>
+    controller: Controller
+}
+
+class Controller {
+    repository: Repository
+    findById(params: Params)
+    create(params: Params)
+    updateById(params: Params)
+    deleteById(params: Params)
+}
+
+class Repository {
+    model: Model
+    findById(params: Params)
+    create(params: Params)
+    updateById(params: Params)
+    deleteById(params: Params)
+}
+
+class "Model extends BaseEntity" {
+    findById(params: Params)
+    save(params: Params)
+    findByIdAndUpdate(params: Params)
+    findByIdAndDelete(params: Params)    
+}
+Route - Resource
+Resource -- Controller
+Controller -- Repository
+Repository -- BaseEntity
+"Model extends BaseEntity" -- BaseEntity
+
+@enduml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

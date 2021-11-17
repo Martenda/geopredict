@@ -1,0 +1,43 @@
+@startuml geopredict app structure diagram
+
+class View {
+    controller: Controller
+}
+
+class Controller {
+    resource: Resource
+}
+
+class Resource {    
+    dataService: DataService
+    findById(id: string)
+    updateById(id: string, data: object)
+    deleteById(id: string)
+    create(data: object)
+}
+
+class "DataService implements DataServiceInterface" {
+    dataServiceConfig: DataServiceConfig
+    find(params: Params)
+    create(params: Params)
+    update(params: Params)
+    delete(params: Params)
+}
+
+interface DataServiceInterface {
+    find(params: Params)
+    create(params: Params)
+    update(params: Params)
+    delete(params: Params)
+}
+
+class DataServiceConfig {
+    remoteUrl: String
+}
+
+View -- Controller
+Controller - Resource
+Resource - "DataService implements DataServiceInterface"
+"DataService implements DataServiceInterface" -- DataServiceConfig
+@enduml
+
