@@ -1,14 +1,12 @@
 {
-  "name": "geopredict",
-  "version": "1.0.0",
-  "description": "geopredict",
-  "main": "index.js",
-  "scripts": {
-    "setup-backend": "npm run setup --prefix backend/api",
-    "start-backend": "npm run start --prefix backend/api",
-    "setup-frontend": "npm run setup --prefix frontend/app",
-    "start-frontend": "npm run start --prefix frontend/app"
-  },
-  "author": "",
-  "license": "ISC"
+    "name": "geopredict",
+    "version": "1.0.0",
+    "description": "geopredict",
+    "main": "index.js",
+    "scripts": {
+        "setup-backend": "npm run setup --prefix backend/api",
+        "start-backend": "npm run start --prefix backend/api",
+        "setup-frontend": "npm run setup --prefix frontend/app",
+        "start-frontend": "npm run start --prefix frontend/app"
+    }
 }

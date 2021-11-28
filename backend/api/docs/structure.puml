@@ -39,11 +39,10 @@ class "Model extends BaseEntity" {
     findByIdAndDelete(params: Params)    
 }
 Route - Resource
-Resource -- Controller
+Resource - Controller
 Controller -- Repository
-Repository -- BaseEntity
-"Model extends BaseEntity" -- BaseEntity
-
+BaseEntity <|-- "Model extends BaseEntity"
+Repository - "Model extends BaseEntity"
 @enduml
 
 
