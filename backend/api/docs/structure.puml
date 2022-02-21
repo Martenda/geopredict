@@ -16,6 +16,18 @@ class Resource {
     controller: Controller
 }
 
+interface ServerServiceInterface {
+    init()
+    listen()
+}
+
+class ServerServiceExpressAdapter {
+    httpServerInstance
+    resources
+    init()
+    listen()
+}
+
 class Controller {
     repository: Repository
     findById(params: Params)
@@ -43,6 +55,8 @@ Resource - Controller
 Controller -- Repository
 BaseEntity <|-- "Model extends BaseEntity"
 Repository - "Model extends BaseEntity"
+Resource -- ServerServiceInterface
+ServerServiceExpressAdapter .> ServerServiceInterface
 @enduml
 
 

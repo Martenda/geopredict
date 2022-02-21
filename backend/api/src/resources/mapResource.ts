@@ -4,8 +4,8 @@ import { Route } from "./resource";
 
 const baseRoute = "/maps";
 
-const scoreResource: Array<Route> = [
+const mapResource: Array<Route> = [
     ...crudRoutesFactory(baseRoute, MapController),
 ];
 
-export default scoreResource;
+export default mapResource;

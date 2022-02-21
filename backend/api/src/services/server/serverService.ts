@@ -4,6 +4,15 @@ import resources from "../../resources";
 import { Route } from "../../resources/resource";
 import cors from "cors";
 
+// interface serverServiceInterface {
+//     // listen()
+// }
+// class ServerServiceExpressAdapter {
+//     constructor() {
+//         this.httpServerInstance = null;
+//     }
+// }
+
 function init() {
     const httpServer = express();
 

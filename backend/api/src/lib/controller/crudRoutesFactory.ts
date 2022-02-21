@@ -7,6 +7,11 @@ function crudRoutesFactory(
 ): Array<Route> {
     return [
         {
+            url: `${baseRoute}`,
+            method: "get",
+            handler: controller.findAll,
+        },
+        {
             url: `${baseRoute}/:id`,
             method: "get",
             handler: controller.findById,

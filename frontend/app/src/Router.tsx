@@ -1,5 +1,4 @@
 import React from 'react';
-import MapViewport from './components/MapViewport.jsx';
 import Drawer from './components/drawer/Drawer.jsx';
 import {
   BrowserRouter,
@@ -7,16 +6,17 @@ import {
   Route,
 } from "react-router-dom";
 import './index.css';
-import Maps from './views/maps/Maps.jsx';
+import Play from './views/play/Play';
 import { routes } from './services/navigationService';
+import MapViewport from './components/MapViewport.jsx';
 
 function Router() {
   return (
     <BrowserRouter>
       <Drawer>
         <Routes>
-          <Route path={routes.PLAY} element={<MapViewport/>} />
-          <Route path={routes.MAPS} element={<Maps />} />
+          <Route path={`${routes.PLAY}/:id`} element={<MapViewport/>} />
+          <Route path={`${routes.PLAY}`} element={<Play/>} />
         </Routes>
       </Drawer>
     </BrowserRouter>

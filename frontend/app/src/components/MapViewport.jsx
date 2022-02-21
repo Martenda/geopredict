@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     GoogleMap,
     LoadScript,
@@ -6,6 +6,7 @@ import {
 } from "@react-google-maps/api";
 import "../index.css";
 import mapController from "../controllers/mapController";
+import { useParams } from "react-router-dom";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -20,14 +21,17 @@ const defaultMapOptions = {
 };
 
 function MapViewport() {
+    const { id } = useParams();
+
     const [position, setPosition] = useState(null);
+    const [map, setMap] = useState(null);
 
     return (
         <div>
             <LoadScript googleMapsApiKey={API_KEY}>
                 <GoogleMap
                     mapContainerClassName={"StreetViewContainer"}
-                    onLoad={() => mapController.onLoad(setPosition)}
+                    onLoad={() => mapController.onLoad(id, setPosition, setMap)}
                 >
                     <StreetViewPanorama
                         position={position}
@@ -40,7 +44,9 @@ function MapViewport() {
                     center={{ lat: 0, lng: 0 }}
                     zoom={3}
                     options={defaultMapOptions}
-                    onClick={mapController.onMapClick}
+                    onClick={(event) =>
+                        mapController.onMapClick(event, position)
+                    }
                 />
             </LoadScript>
         </div>

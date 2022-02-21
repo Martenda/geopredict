@@ -8,6 +8,22 @@ class Controller {
         this.repository = repository;
     }
 
+    async findAll(req: Request, res: Response) {
+        const entity = {
+            name: "test",
+            places: [
+                {
+                    type: "Point",
+                    coordinates: [-28.620497147296177, -51.04341959808675],
+                },
+            ],
+        };
+
+        const entities = [entity];
+
+        return res.json(entities);
+    }
+
     async findById(req: Request, res: Response) {
         // const entity = await this.repository.findById(req.params.id);
 

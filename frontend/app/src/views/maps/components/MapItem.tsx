@@ -1,0 +1,15 @@
+import { Button } from "@material-ui/core";
+import React from "react";
+import { Map } from "../../../types/map";
+
+type propTypes = { map: Map, onButtonClick: Function }
+
+export default function MapItem({ map, onButtonClick }: propTypes ) {
+    return (
+        <div className="center" style={{margin: '3rem'}}>
+            {map.name}
+            <br/>
+            <Button onClick={() => onButtonClick(map.id)}>Jogar</Button>
+        </div>
+    );
+}

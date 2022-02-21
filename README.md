@@ -6,5 +6,6 @@ how to run:
 ```
 npm run setup-frontend &&
 npm run setup-backend &&
-npm start
+npm run start-frontend &&
+npm run start-backend
 ```

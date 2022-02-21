@@ -1,4 +1,4 @@
-import Resource from "../lib/Resource";
+import Resource from "./Resource";
 
 class MapResource extends Resource {
     constructor() {

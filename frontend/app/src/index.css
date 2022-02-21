@@ -12,6 +12,12 @@
     margin-right: auto;
 }
 
+.center {
+    align-items: "center";
+    align-self: "center";
+    justify-content: "center";
+}
+
 .App {
     text-align: center;
 }
