@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Repository from "../repository/Repository";
 
 class Controller {
-    protected repository!: Repository;
+    repository!: Repository;
 
     constructor(repository: Repository) {
         this.repository = repository;

@@ -15,7 +15,7 @@ const scoreSchema = new Schema<Score>({
     map: mapSchema,
     user: userSchema,
     points: { type: Number, required: true },
-    timeSpentInSeconds: { type: Number, required: true },
+    timeSpentInSeconds: { type: Number },
     place: { type: String, required: true },
 });
 

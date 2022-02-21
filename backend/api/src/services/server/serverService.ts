@@ -17,6 +17,7 @@ function init() {
     const httpServer = express();
 
     httpServer.use(cors());
+    httpServer.use(express.json());
 
     resources.forEach(({ url, method, handler }: Route) => {
         console.log({ url, method });

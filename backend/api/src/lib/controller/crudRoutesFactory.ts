@@ -9,24 +9,28 @@ function crudRoutesFactory(
         {
             url: `${baseRoute}`,
             method: "get",
-            handler: controller.findAll,
+            handler: (req, res) => controller.findAll(req, res),
         },
         {
             url: `${baseRoute}/:id`,
             method: "get",
-            handler: controller.findById,
+            handler: (req, res) => controller.findById(req, res),
         },
         {
             url: `${baseRoute}/:id`,
             method: "patch",
-            handler: controller.updateById,
+            handler: (req, res) => controller.updateById(req, res),
         },
         {
             url: `${baseRoute}/:id`,
             method: "delete",
-            handler: controller.deleteById,
+            handler: (req, res) => controller.deleteById(req, res),
         },
-        { url: `${baseRoute}`, method: "post", handler: controller.create },
+        {
+            url: `${baseRoute}`,
+            method: "post",
+            handler: (req, res) => controller.create(req, res),
+        },
     ];
 }
 
