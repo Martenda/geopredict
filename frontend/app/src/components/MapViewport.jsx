@@ -7,6 +7,7 @@ import {
 import "../index.css";
 import mapController from "../controllers/mapController";
 import { useParams } from "react-router-dom";
+import Drawer from "./drawer/Drawer";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -27,7 +28,7 @@ function MapViewport() {
     const [map, setMap] = useState(null);
 
     return (
-        <div>
+        <Drawer>
             <LoadScript googleMapsApiKey={API_KEY}>
                 <GoogleMap
                     mapContainerClassName={"StreetViewContainer"}
@@ -49,7 +50,7 @@ function MapViewport() {
                     }
                 />
             </LoadScript>
-        </div>
+        </Drawer>
     );
 }
 

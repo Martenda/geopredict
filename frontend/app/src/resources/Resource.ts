@@ -10,6 +10,10 @@ class Resource {
         this.dataService = DataService;
     }
 
+    async findAll(): Promise<any> {
+        return this.dataService.findAll({ path: this.resourceName });
+    }
+
     async findById(id: string): Promise<any> {
         return this.dataService.find({ path: this.resourceName, id });
     }

@@ -1,25 +1,9 @@
 import navigationService from "../services/navigationService";
+import mapResource from "../resources/mapResource";
 
-const maps = [
-    {
-        id: "1",
-        name: "Mapa 01",
-        places: [],
-    },
-    {
-        id: "2",
-        name: "Mapa 02",
-        places: [],
-    },
-    {
-        id: "3",
-        name: "Mapa 03",
-        places: [],
-    },
-];
-
-function initialize(setMaps: Function) {
-    setMaps(maps);
+async function loadAllMaps() {
+    const maps = await mapResource.findAll();
+    return maps;
 }
 
 function playSelectedMap(mapId: string) {
@@ -27,7 +11,7 @@ function playSelectedMap(mapId: string) {
 }
 
 const playController = {
-    initialize,
+    loadAllMaps,
     playSelectedMap,
 };
 

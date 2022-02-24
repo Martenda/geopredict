@@ -18,7 +18,8 @@ const ClippedDrawer = (props) => {
         <Box sx={{ display: "flex" }}>
             <CssBaseline />
             <AppBar
-                position="fixed"
+                color={"primary"}
+                position={"fixed"}
                 sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
             >
                 <Toolbar>
@@ -48,7 +49,7 @@ const ClippedDrawer = (props) => {
                 <DrawerItem
                     label={"Scores"}
                     Icon={TrophyIcon}
-                    onClick={() => navigationService.navigateTo(routes.MAPS)}
+                    onClick={() => navigationService.navigateTo(routes.SCORES)}
                 />
             </Drawer>
 
@@ -59,4 +60,5 @@ const ClippedDrawer = (props) => {
         </Box>
     );
 };
+
 export default ClippedDrawer;

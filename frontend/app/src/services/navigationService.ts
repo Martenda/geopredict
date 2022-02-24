@@ -1,6 +1,9 @@
 export const routes = {
+    DEFAULT: "/",
     PLAY: "/play",
     MAPS: "/maps",
+    LOGIN: "/login",
+    SCORES: "/scores",
 };
 
 export function navigateTo(route: string) {
