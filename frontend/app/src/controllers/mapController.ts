@@ -34,7 +34,8 @@ async function onMapClick(
     };
 
     try {
-        await scoreResource.create(score);
+        const response = await scoreResource.create(score);
+        console.log(response);
     } catch (error) {
         console.error(error);
     }

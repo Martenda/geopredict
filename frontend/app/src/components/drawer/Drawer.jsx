@@ -1,62 +1,44 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import AppBar from "@mui/material/AppBar";
+import CssBaseline from "@mui/material/CssBaseline";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+
 import DrawerItem from "./DrawerItem";
 import TrophyIcon from "@mui/icons-material/EmojiEvents";
 import GameIcon from "@mui/icons-material/SportsEsports";
-import MapIcon from "@mui/icons-material/Map";
 import navigationService, { routes } from "../../services/navigationService";
 
 const drawerWidth = 240;
 
-const styles = (theme) => ({
-    root: {
-        flexGrow: 1,
-        height: "100%",
-        zIndex: 1,
-        overflow: "hidden",
-        position: "relative",
-        display: "flex",
-    },
-    appBar: {
-        zIndex: theme.zIndex.drawer + 1,
-    },
-    drawerPaper: {
-        position: "relative",
-        width: drawerWidth,
-    },
-    content: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: theme.palette.background.default,
-        padding: theme.spacing.unit * 1.25,
-    },
-    toolbar: theme.mixins.toolbar,
-});
-
-function ClippedDrawer(props) {
-    const { classes } = props;
-
+const ClippedDrawer = (props) => {
     return (
-        <div className={classes.root}>
-            <AppBar position="absolute" className={classes.appBar}>
+        <Box sx={{ display: "flex" }}>
+            <CssBaseline />
+            <AppBar
+                position="fixed"
+                sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            >
                 <Toolbar>
-                    <Typography variant="h6">Geopredict</Typography>
+                    <Typography variant="h6" noWrap component="div">
+                        Geopredict
+                    </Typography>
                 </Toolbar>
             </AppBar>
             <Drawer
                 variant="permanent"
-                classes={{
-                    paper: classes.drawerPaper,
+                sx={{
+                    width: drawerWidth,
+                    flexShrink: 0,
+                    [`& .MuiDrawer-paper`]: {
+                        width: drawerWidth,
+                        boxSizing: "border-box",
+                    },
                 }}
             >
-                <div className={classes.toolbar} />
+                <Toolbar />
                 <DrawerItem
                     label={"Play"}
                     Icon={GameIcon}
@@ -68,22 +50,13 @@ function ClippedDrawer(props) {
                     Icon={TrophyIcon}
                     onClick={() => navigationService.navigateTo(routes.MAPS)}
                 />
-                <DrawerItem
-                    label={"Maps"}
-                    Icon={MapIcon}
-                    onClick={() => navigationService.navigateTo(routes.MAPS)}
-                />
             </Drawer>
-            <main className={classes.content}>
-                <div className={classes.toolbar} />
-                {props.children}
-            </main>
-        </div>
+
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                <Toolbar />
+                <main>{props.children}</main>
+            </Box>
+        </Box>
     );
-}
-
-ClippedDrawer.propTypes = {
-    classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(ClippedDrawer);
+export default ClippedDrawer;

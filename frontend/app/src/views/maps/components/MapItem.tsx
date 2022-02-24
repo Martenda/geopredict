@@ -1,5 +1,4 @@
 import { Button } from "@material-ui/core";
-import React from "react";
 import { Map } from "../../../types/map";
 
 type propTypes = { map: Map, onButtonClick: Function }
