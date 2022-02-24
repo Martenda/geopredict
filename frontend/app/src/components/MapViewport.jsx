@@ -46,7 +46,7 @@ function MapViewport() {
                     zoom={3}
                     options={defaultMapOptions}
                     onClick={(event) =>
-                        mapController.onMapClick(event, position)
+                        mapController.onMapClick(event, position, map)
                     }
                 />
             </LoadScript>

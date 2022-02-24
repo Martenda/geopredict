@@ -9,38 +9,17 @@ class Controller {
     }
 
     async findAll(req: Request, res: Response) {
-        const entity = {
-            name: "test",
-            places: [
-                {
-                    type: "Point",
-                    coordinates: [-28.620497147296177, -51.04341959808675],
-                },
-            ],
-        };
-
-        const entities = [entity];
+        const entities = await this.repository.findAll(req.query);
 
         return res.json(entities);
     }
 
     async findById(req: Request, res: Response) {
-        // const entity = await this.repository.findById(req.params.id);
+        const entity = await this.repository.findById(req.params.id);
 
-        // if (!entity) {
-        //     //add error handling for 404 status
-        //     throw new Error("404 not found");
-        // }
-
-        const entity = {
-            name: "test",
-            places: [
-                {
-                    type: "Point",
-                    coordinates: [-28.620497147296177, -51.04341959808675],
-                },
-            ],
-        };
+        if (!entity) {
+            throw new Error("404 not found");
+        }
 
         return res.json(entity);
     }
@@ -49,7 +28,6 @@ class Controller {
         const { body } = req;
 
         if (!body) {
-            // todo proper error handling
             throw new Error("400 bad request");
         }
 
@@ -60,7 +38,6 @@ class Controller {
 
     async updateById(req: Request, res: Response) {
         if (!req.body || !req.body.id) {
-            // todo: proper error handling
             throw new Error("400 bad request");
         }
 

@@ -15,6 +15,14 @@ class Repository {
         this.model = model;
     }
 
+    async findAll(query: object) {
+        const docs = await this.model.find(query);
+
+        if (docs.length) {
+            return docs.map((doc) => doc.toJSON());
+        }
+    }
+
     async findById(id: string) {
         const doc = await this.model.findById(id);
 
