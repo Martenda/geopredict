@@ -6,7 +6,7 @@ class ScoreResource extends Resource {
     }
 
     async findScoresByMap(mapId: number, userToken: string): Promise<any> {
-        return this.dataService.find({
+        return this.dataService.findAll({
             path: this.resourceName,
             body: { mapId, userToken },
         });

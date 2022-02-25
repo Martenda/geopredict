@@ -15,18 +15,20 @@ class Repository {
         this.model = model;
     }
 
-    async findAll(query: object) {
-        const docs = await this.model.find(query);
+    async findAll(query?: object): Promise<object[]> {
+        const docs = await this.model.find(query || {});
 
         if (docs.length) {
             return docs.map((doc) => doc.toJSON());
         }
+
+        return [];
     }
 
     async findById(id: string) {
         const doc = await this.model.findById(id);
 
-        if (!doc) {
+        if (doc) {
             return doc.toJSON();
         }
     }

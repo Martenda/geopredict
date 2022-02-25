@@ -15,7 +15,7 @@ class Resource {
     }
 
     async findById(id: string): Promise<any> {
-        return this.dataService.find({ path: this.resourceName, id });
+        return this.dataService.findOne({ path: this.resourceName, id });
     }
 
     async updateById(id: string, data: object): Promise<any> {

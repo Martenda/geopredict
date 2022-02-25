@@ -5,7 +5,7 @@ const MapItem = ({ map, onButtonClick }) => {
         <div className="center" style={{ margin: "3rem" }}>
             {map.name}
             <br />
-            <Button onClick={() => onButtonClick(map.id)}>Jogar</Button>
+            <Button onClick={() => onButtonClick(map._id)}>Jogar</Button>
         </div>
     );
 };

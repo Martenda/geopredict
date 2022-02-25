@@ -18,7 +18,8 @@ class Controller {
         const entity = await this.repository.findById(req.params.id);
 
         if (!entity) {
-            throw new Error("404 not found");
+            res.status(404);
+            return res.send("Not found");
         }
 
         return res.json(entity);
@@ -28,7 +29,8 @@ class Controller {
         const { body } = req;
 
         if (!body) {
-            throw new Error("400 bad request");
+            res.status(400);
+            return res.send("Bad request");
         }
 
         const entity = await this.repository.create(body);
@@ -38,7 +40,8 @@ class Controller {
 
     async updateById(req: Request, res: Response) {
         if (!req.body || !req.body.id) {
-            throw new Error("400 bad request");
+            res.status(400);
+            return res.send("Bad request");
         }
 
         const entity = this.repository.updateById(req.params.id, req.body);

@@ -18,7 +18,12 @@ async function parseResponse(response: Response) {
 }
 
 class DataService implements DataServiceInterface {
-    async find(params: Params) {
+    async findAll(params: Params) {
+        const response = await fetch(`${apiUrl}/${params.path}`);
+        return await parseResponse(response);
+    }
+
+    async findOne(params: Params) {
         const response = await fetch(
             `${apiUrl}/${params.path}${params.id ? "/" + params.id : ""}`
         );

@@ -5,7 +5,8 @@ export type Params = {
 };
 
 export default interface DataServiceInterface {
-    find: (params: Params) => Promise<any>;
+    findAll: (params: Params) => Promise<any>;
+    findOne: (params: Params) => Promise<any>;
     create: (params: Params) => Promise<any>;
     update: (params: Params) => Promise<any>;
     delete: (params: Params) => Promise<any>;
